@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+header {
+    padding: 25px 50px;
+}
+
+header h1 {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* SCORES */
+.scores {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px 50px;
+}
+
+.scores h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* FINAL RESULTS */
+#final-result {
+    display: none;
+
+    text-align: center;
+    color: red;
+    font-size: 38px;
+    font-weight: 600;
+}
+
+/* SELECTIONS */
+.selections {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+    padding: 25px 50px;
+}
+
+.selections span {
+    font-size: 26px;
+    font-weight: 600;
+    
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 25px 50px;
+}
+
+.buttons button {
+    background-color: rgb(255, 0, 55);
+    flex: 1;
+    max-width: 250px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.buttons button:hover {
+    filter: brightness(1.75);
+}

@@ -1,11 +1,15 @@
 const playerScoreContainer = document.getElementById("player-score");
 const computerScoreContainer = document.getElementById("computer-score");
 
-const finalResult = document.getElementById("final-result");
+const result = document.getElementById("result");
 
 const selectionsContainer = document.getElementById("selections")
 const playerSelection = document.getElementById("player-selection");
 const computerSelection = document.getElementById("computer-selection");
+
+let playerScore = 0;
+let computerScore = 0;
+let canPlayRound = true;
 
 
 function getComputerChoice() {
@@ -28,55 +32,60 @@ function setImage(humanChoice, computerChoice) {
 
     computerSelection.src = `./imgs/${computerChoice}.webp`;
     computerSelection.alt = computerChoice;
+    computerSelection.style.transform = "scaleX(-1)";
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice) {
+    if (!canPlayRound) {
+        return;
+    }
+
     let computerChoice = getComputerChoice();
     setImage(humanChoice, computerChoice);
+    result.style.display = "block";
 
     if (humanChoice === computerChoice) {
-        console.log("Its a tie!");
-        return;
+        result.textContent = "Its a tie!";
     }
 
-    if (humanChoice === "rock" && computerChoice === "paper") {
-        console.log("Computer wins!");
+    else if (humanChoice === "rock" && computerChoice === "paper") {
+        result.textContent = "Computer wins round!";
         computerScore++;
-        return;
     }
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log("Human wins!");
-        humanScore++;
-        return;
+        result.textContent = "Human wins round!";
+        playerScore++;
     }
 
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log("Human wins!");
-        humanScore++;
-        return;
+        result.textContent = "Human wins round!";
+        playerScore++;
     }
     else if (humanChoice === "paper" && computerChoice === "scissors") {
-        console.log("Computer wins!");
+        result.textContent = "Computer wins round!";
         computerScore++;
-        return;
     }
 
     else if (humanChoice === "scissors" && computerChoice === "rock") {
-        console.log("Computer wins!");
+        result.textContent = "Computer wins round!";
         computerScore++;
-        return;
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        console.log("Human wins!");
-        humanScore++;
-        return;
+        result.textContent = "Human wins round!";
+        playerScore++;
     }
 
-    else {
-        console.log("Invalid choice.");
-        return;
+    playerScoreContainer.textContent = `You: ${playerScore}`;
+    computerScoreContainer.textContent = `Computer: ${computerScore}`;
+
+    if (playerScore === 5) {
+        result.textContent = "YOU WON! 🎉"
+        result.style.fontSize = "38px";
+        canPlayRound = false;
+    }
+    else if (computerScore === 5) {
+        result.textContent = "YOU LOST! 💀🥀💔"
+        result.style.fontSize = "38px";
+        canPlayRound = false;
     }
 }

@@ -27,17 +27,17 @@
         <h2 id="final-result"></h2>
 
         <!-- SELECTIONS -->
-        <div class="selections">
-            <img src="" alt="" width="200">
+        <div class="selections" id="selections">
+            <img id="player-selection" src="" alt="" width="200" height="200">
             <span>vs</span>
-            <img src="" alt="" width="200">
+            <img id="computer-selection" src="" alt="" width="200" height="200">
         </div>
 
         <!-- BUTTONS -->
         <div class="buttons">
-            <button id="rock-button">ROCK</button>
-            <button id="paper-button">PAPER</button>
-            <button id="scissors-button">SCISSORS</button>
+            <button class="button" id="rock-button" onclick="playRound('rock')">ROCK</button>
+            <button class="button" id="paper-button" onclick="playRound('paper')">PAPER</button>
+            <button class="button" id="scissors-button" onclick="playRound('scissors')">SCISSORS</button>
         </div>
     </main>
 
